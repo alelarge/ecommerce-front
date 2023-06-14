@@ -1,0 +1,64 @@
+.navbar {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: purple;
+    color: #fff;
+}
+
+.nav-links a {
+    color: #fff;
+}
+
+.logo {
+    font-size: 40px;
+}
+
+.menu {
+    display: flex ;
+    gap: 2em;
+    font-size:20px;
+}
+
+.menu :hover {
+    background-color: black;
+    border-radius: 3px;
+    transition: 0,2s ease;
+}
+  
+.menu li {
+    padding: 5px 10px;
+}
+  
+.services {
+    position: relative;
+}
+  
+.dropdown {
+    background-color: rgb(1, 139, 139);
+    padding: 1em 0;
+    position: absolute;
+    display: none;
+    border-radius: 10px;
+    top: 30px;
+
+}
+  
+  .dropdown li + li {
+    margin-top: 10px;
+  }
+  
+  .dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+  }
+  
+  .dropdown li:hover {
+    background-color: black;
+  }
+  
+  .services:hover .dropdown {
+    display: block;
+  }
