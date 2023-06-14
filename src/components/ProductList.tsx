@@ -1,3 +1,5 @@
+import '../scss/ProductList.scss';
+
 type ProductType = {
     imageUrl: string,
     altTxt: String,
@@ -11,7 +13,7 @@ type ProductType = {
 export default function ProductList(props: any){
     const products = props.products;
     const productItems = products.map((product: ProductType) =>
-      <article>
+      <article className="product-card">
         <img
         className="product-img"
         src= {product.imageUrl}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './scss/base.scss';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 
