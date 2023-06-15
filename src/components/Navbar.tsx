@@ -9,7 +9,7 @@ export default function Navbar(){
                     {/* <input type="checkbox"id="chexboc_toogle"/> */}
                     <label htmlFor="checkbox_toogle" className="hamburger"></label>
                     <div className="menu">
-                        <a href="/">Accueil</a>
+                        <a href ="/">Accueil</a>
                         <a href="/">A propos</a>
                         <a href="/">Tous les produits</a>
                             <ul className="dropdown">
@@ -17,7 +17,7 @@ export default function Navbar(){
                                 <li><a href="/">Miel forêt</a></li>
                                 <li><a href="/">Miel tilleul</a></li>
                             </ul>
-                        <a href="/">Panier</a>
+                        <a href="/cart">Panier</a>
                         <a href="/">Contact</a>
                     </div>
                 </ul>

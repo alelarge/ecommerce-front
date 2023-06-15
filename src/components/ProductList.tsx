@@ -2,7 +2,7 @@ import '../scss/ProductList.scss';
 
 type ProductType = {
     imageUrl: string,
-    altTxt: String,
+    altTxt: string,
     title: String,
     description : String,
     price: Number,
@@ -13,24 +13,20 @@ type ProductType = {
 export default function ProductList(props: any){
     const products = props.products;
     const productItems = products.map((product: ProductType) =>
-      <article className="product-card">
-        <img
-        className="product-img"
-        src= {product.imageUrl}
-        alt="Type de miel"
-        width={100}
-        height={100}
-      />
-        {/* {product.imageUrl}
-        {product.altTxt} */}
-        <section>
-          <h1>{product.title}</h1>
-          <h2>{product.description}</h2>
-          {/* <p>{product.price}</p>
-          <p>{product.quantity}</p> */}
-          <p>{product.stocked}</p>
-        </section>
-      </article>
+      <div className="product-card">
+            <img
+            className="product-img"
+            src= {product.imageUrl}
+            alt={product.altTxt}
+            width={100}
+            height={100}
+            />
+            <section className="product-details">
+            <h1>{product.title}</h1>
+            <h2>{product.description}</h2>
+            <p>{product.stocked}</p>
+            </section>
+        </div>
     );
     
     return (
