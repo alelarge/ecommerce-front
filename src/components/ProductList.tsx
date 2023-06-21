@@ -1,29 +1,12 @@
 import '../scss/ProductList.scss';
-import { useReducer } from "react";
 import { useGetProducts } from "../hooks/productHooks";
 import { ProductType } from '../services/types';
 
-// function products(name) {
-//   const { data, isError, isLoading } = useGetProducts(name);
-
-//   return (
-//     <div>
-//       {isError ? (
-//         <>Oh no, there was an error</>
-//       ) : isLoading ? (
-//         <>Loading...</>
-//       ) : data ? (
-//         <>
-//           {/* <h3>{data.species.name}</h3>
-//           <img src={data.product.imageUrl.name} alt={data.product.alt} /> */}
-//         </>
-//       ) : null}
-//     </div>
-//   );
-// }
-
 export default function ProductList(){
-  const { data, isError, isLoading } = useGetProducts();
+  function handleClick() {
+      alert('ajouter au panier');
+  }
+  const { data } = useGetProducts();
   const productItems = data.map((product: ProductType) =>
     <div className="product-card">
           <img
@@ -34,9 +17,12 @@ export default function ProductList(){
             height={100}
           />
           <section className="product-details">
-          <h1>{product.title}</h1>
-          <h2>{product.description}</h2>
-          <p>{product.stocked}</p>
+            <h1>{product.title}</h1>
+            <h2>{product.description}</h2>
+            <p>{product.stocked}</p>
+            <div className="button-container-div">
+              <button className="button" onClick={handleClick}>Ajouter au panier</button>
+            </div>
           </section>
       </div>
   );
