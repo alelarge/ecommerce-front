@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "./types";
 import { RootState } from "../store";
+import { useGetProducts } from "../hooks/productHooks";
 
-export const fetchProducts = createAsyncThunk<ProductType[], string>(
+
+export const fetchProducts = createAsyncThunk<ProductType[]>(
   "products",
   async (name, { rejectWithValue }) => {
+      console.log('will fetch products');
     const response = await fetch(`http://localhost:5000/products`);
     const data = await response.json();
     if (response.status < 200 || response.status >= 300) {
@@ -24,27 +27,20 @@ export const productSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    // When our request is pending:
-    // - store the 'pending' state as the status for the corresponding pokemon name
     builder.addCase(fetchProducts.pending, (state, action) => {
       state.status = "pending";
     });
-    // When our request is fulfilled:
-    // - store the 'fulfilled' state as the status for the corresponding pokemon name
-    // - and store the received payload as the data for the corresponding pokemon name
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.status = "fulfilled";
       state.data = action.payload;
     });
-    // When our request is rejected:
-    // - store the 'rejected' state as the status for the corresponding pokemon name
     builder.addCase(fetchProducts.rejected, (state, action) => {
       state.status = "rejected";
     });
   }
 });
 
-export const selectStatus = (state: RootState, name: string) =>
+export const selectStatus = (state: RootState) =>
   state.products.status;
-export const selectProducts = (state: RootState, name: string) =>
+export const selectProducts = (state: RootState) =>
   state.products.data;

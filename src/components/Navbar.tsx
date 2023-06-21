@@ -2,7 +2,6 @@ import '../scss/Navbar.scss';
 
 export default function Navbar(){
     return(
-        <body>
             <nav className="navbar">
                 <div className="logo">Miel et gourmandises</div>
                 <ul className="nav-links">
@@ -21,7 +20,6 @@ export default function Navbar(){
                         <a href="/">Contact</a>
                     </div>
                 </ul>
-            </nav>    
-        </body>
+            </nav>
     )
 }
