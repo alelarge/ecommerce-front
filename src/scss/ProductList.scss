@@ -5,8 +5,10 @@
 section.product-list{
     display:flex;
     padding-top: 20px;
-    justify-content: space-evenly;
+     justify-content: space-evenly;
     align-content: center;
+    // grid-template-rows: repeat(3, 50px);
+    // display: grid;
 
     h1 {
         color: blue;
@@ -30,7 +32,4 @@ img.product-img{
 
 .products-details {
     flex-direction: row;
-
-    
-
 }
