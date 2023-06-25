@@ -1,11 +1,11 @@
 import '../scss/ProductList.scss';
+import {useAppSelector, useAppDispatch} from "../hooks/hooks";
 import { useGetProducts } from "../hooks/productHooks";
 import { ProductType } from '../services/types';
+import {add} from '../services/cartSlice';
 
 export default function ProductList(){
-  function handleClick() {
-      alert('ajouter au panier');
-  }
+  const dispatch = useAppDispatch();
   const { data } = useGetProducts();
   const productItems = data.map((product: ProductType) =>
     <div className="product-card">
@@ -21,7 +21,7 @@ export default function ProductList(){
             <h2>{product.description}</h2>
             <p>{product.stocked}</p>
             <div className="button-container-div">
-              <button className="button" onClick={handleClick}>Ajouter au panier</button>
+              <button className="button" onClick={()=> dispatch(add(product))}>Ajouter au panier</button>
             </div>
           </section>
       </div>
