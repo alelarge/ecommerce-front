@@ -5,11 +5,10 @@ export default function Navbar(){
             <nav className="navbar">
                 <div className="logo">Miel et gourmandises</div>
                 <ul className="nav-links">
-                    {/* <input type="checkbox"id="chexboc_toogle"/> */}
                     <label htmlFor="checkbox_toogle" className="hamburger"></label>
                     <div className="menu">
                         <a href ="/">Accueil</a>
-                        <a href="/">A propos</a>
+                        <a href="/about">A propos</a>
                         <a href="/">Tous les produits</a>
                             <ul className="dropdown">
                                 <li><a href="/">Miel de fleurs</a></li>
