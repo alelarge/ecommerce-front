@@ -1,5 +1,5 @@
 import '../scss/ProductList.scss';
-import {useAppSelector, useAppDispatch} from "../hooks/hooks";
+import { useAppDispatch} from "../hooks/hooks";
 import { useGetProducts } from "../hooks/productHooks";
 import { ProductType } from '../services/types';
 import {add} from '../services/cartSlice';
