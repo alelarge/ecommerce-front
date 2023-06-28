@@ -8,7 +8,7 @@ export default function ProductList(){
   const dispatch = useAppDispatch();
   const { data } = useGetProducts();
   const productItems = data.map((product: ProductType) =>
-    <div className="product-card">
+    <div key={product.id} className="product-card">
           <img
             className="product-img"
             src={product.imageUrl}

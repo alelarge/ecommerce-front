@@ -7,7 +7,6 @@ import { useGetProducts } from "../hooks/productHooks";
 export const fetchProducts = createAsyncThunk<ProductType[]>(
   "products",
   async (name, { rejectWithValue }) => {
-      console.log('will fetch products');
     const response = await fetch(`http://localhost:5000/products`);
     const data = await response.json();
     if (response.status < 200 || response.status >= 300) {

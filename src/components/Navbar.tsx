@@ -16,7 +16,7 @@ export default function Navbar(){
                                 <li><a href="/">Miel tilleul</a></li>
                             </ul>
                         <a href="/cart">Panier</a>
-                        <a href="/">Contact</a>
+                        {/* <a href="/">Contact</a> */}
                     </div>
                 </ul>
             </nav>
