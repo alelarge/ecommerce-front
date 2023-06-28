@@ -26,10 +26,26 @@ export const cartSlice = createSlice({
   },
   reducers: {
       add: (state, action: PayloadAction<ProductType>) => {
-          state.products = [
-              ...state.products,
-              action.payload,
-          ]
+        let isAlreadyInCart = false;
+        if(state.products.length === 0){
+            state.products = [action.payload];
+        } else {
+            for (let i = 0; i < state.products.length; i++) {
+                const product = state.products[i];
+    
+                if(action.payload.id === product.id) {
+                    isAlreadyInCart = true;
+                    state.products[i].quantity += 1;
+                }
+            }
+
+            if(!isAlreadyInCart) {
+                state.products = [
+                    ...state.products,
+                    action.payload,
+                ]
+            }
+        }
           localStorage.setItem('products', JSON.stringify(state.products));
       }
   }
