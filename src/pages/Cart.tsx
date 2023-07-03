@@ -1,19 +1,25 @@
 import '../scss/About.scss';
-import {RootState} from "../redux/store";
-import { selectCartProducts } from '../redux/slices/cartSlice';
-import { useAppSelector } from '../hooks/hooks';
+import { useAppSelector} from '../hooks/hooks';
+import { ProductType } from '../utils/types';
 
 export default function Cart() {
-  //const products = selectCartProducts(state);
   const cartProducts = useAppSelector(state => state.cart.products);
-  console.log('cartProducts', cartProducts);
 
-    return (
-        <>
-        <h1>Miel de forêt</h1>
-        <h2>Quantité : 1</h2>
-        <p>Prix: 16 euros</p>
-        <button>Retirer du panier</button>
-        </>
-      );
+  const cartProductItems = cartProducts.map((product: ProductType) => (
+    <div key={product.id} className="card">
+      <img
+        className="card-img"
+        src={product.imageUrl}
+        alt={product.title}
+        width={100}
+        height={100}
+      />
+      <section className="card-details">
+        <h1>{product.title}</h1>
+        <h2>{product.description}</h2>
+      </section>
+    </div>
+  ));
+
+  return <section className="card-list">{cartProductItems}</section>;
 }

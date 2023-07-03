@@ -5,5 +5,4 @@ export type ProductType = {
     description : string,
     price: number,
     quantity: number,
-    stocked: boolean,
 };

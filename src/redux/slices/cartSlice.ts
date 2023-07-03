@@ -27,11 +27,12 @@ export const cartSlice = createSlice({
   },
   reducers: {
       add: (state, action: PayloadAction<ProductType>) => {
-        if(state.products.length === 0){
-            state.products = [action.payload];
+        let productToAdd = action.payload;
+        if(state.products.length === 0) {
+            state.products = [productToAdd];
         } else {
-            const productIndex = getProductIndexFromCart(state.products, action.payload.id)
-            if (productIndex !== undefined) {
+            const productIndex = getProductIndexFromCart(state.products, productToAdd.id)
+            if (productIndex !== -1) {
                 state.products[productIndex].quantity += 1;
             } else {
                 state.products = [

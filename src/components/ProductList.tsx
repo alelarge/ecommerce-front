@@ -19,7 +19,6 @@ export default function ProductList(){
           <section className="product-details">
             <h1>{product.title}</h1>
             <h2>{product.description}</h2>
-            <p>{product.stocked}</p>
             <div className="button-container-div">
               <button className="button" onClick={()=> dispatch(add(product))}>Ajouter au panier</button>
             </div>
