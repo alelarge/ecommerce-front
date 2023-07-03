@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {RootState} from "../store";
-import { ProductType } from './types';
-import { getProductIndexFromCart } from '../utils';
+import { ProductType } from '../../utils/types';
+import { getProductIndexFromCart } from '../../utils';
 
 type cartState = {
     products: ProductType[],
@@ -31,7 +31,6 @@ export const cartSlice = createSlice({
             state.products = [action.payload];
         } else {
             const productIndex = getProductIndexFromCart(state.products, action.payload.id)
-            console.log('productIndex', productIndex);
             if (productIndex !== undefined) {
                 state.products[productIndex].quantity += 1;
             } else {

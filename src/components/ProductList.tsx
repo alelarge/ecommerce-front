@@ -1,8 +1,8 @@
 import '../scss/ProductList.scss';
 import { useAppDispatch} from "../hooks/hooks";
 import { useGetProducts } from "../hooks/productHooks";
-import { ProductType } from '../services/types';
-import {add} from '../services/cartSlice';
+import { ProductType } from '../utils/types';
+import {add} from '../redux/slices/cartSlice';
 
 export default function ProductList(){
   const dispatch = useAppDispatch();

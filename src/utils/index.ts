@@ -1,4 +1,4 @@
-import { ProductType } from '../services/types';
+import { ProductType } from './types';
 
 export function getProductIndexFromCart(cart: ProductType[], productId: number){
     let productIndex;
