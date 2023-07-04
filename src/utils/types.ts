@@ -6,3 +6,13 @@ export type ProductType = {
     price: number,
     quantity: number,
 };
+
+export type CartState = {
+    products: ProductType[];
+  //   totalQuantity: number;
+  };
+  
+export const initialState: CartState = {
+    products: [],
+  //   totalQuantity: 0,
+  };
