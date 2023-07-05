@@ -29,6 +29,13 @@ export const cartSlice = createSlice({
     }
   },
   reducers: {
+      setProductQuantity: (state, action: PayloadAction<ProductType>) => {
+          let productToUpdate = action.payload;
+        const productIndex = getProductIndexFromCart(state.products, productToUpdate.id)
+        if (productIndex !== -1) {
+            state.products[productIndex].quantity += 1;
+        }
+      },
       add: (state, action: PayloadAction<ProductType>) => {
         let productToAdd = action.payload;
         if(state.products.length === 0) {
@@ -66,5 +73,7 @@ export const cartSlice = createSlice({
 
 export const {add} = cartSlice.actions;
 export const {remove} = cartSlice.actions;
+export const {setProductQuantity} = cartSlice.actions;
+
 export const selectCartProducts = (state: RootState) => state.cart.products
 export default cartSlice.reducer;
