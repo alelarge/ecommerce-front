@@ -51,7 +51,7 @@ export default function CartProductItem({product}:CartProductItemProps) {
             <section>
               <button className="button" onClick={() => dispatch(substract(product))}>-</button>
               <input
-                className="js-cart-line-product-quantity form-control"
+                className="cart"
                 type="text"
                 value={productQuantity}
                 onChange={handleQuantityChange}
