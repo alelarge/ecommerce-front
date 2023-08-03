@@ -6,7 +6,7 @@ import { RootState } from "../store";
 export const fetchProducts = createAsyncThunk<ProductType[]>(
   "products",
   async (name, { rejectWithValue }) => {
-    const response = await fetch(`http://localhost:5000/products`);
+    const response = await fetch(`http://localhost:8080/api/products`);
     const data = await response.json();
     if (response.status < 200 || response.status >= 300) {
       return rejectWithValue(data);
